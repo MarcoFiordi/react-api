@@ -60,6 +60,12 @@ function App() {
                 <p>
                   {actor.birth_year} - {actor.nationality}
                 </p>
+
+                {actor.death_year && (
+                  <p>
+                    Death year: {actor.death_year}
+                  </p>
+                )}
               </article>
             );
           })}
