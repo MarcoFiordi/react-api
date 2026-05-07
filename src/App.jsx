@@ -1,6 +1,40 @@
+import { useEffect } from "react";
+import { useState } from "react";
 
-
+const API_URL = "https://lanciweb.github.io/demo/api/actors/";
 function App() {
+  const [actors, setActors] = useState([]);
+  const fetchActors = () => {
+    return fetch(API_URL)
+    .then((response) => {
+      console.log(response);
+      return response.json();
+      
+    })
+    .then((data) => {
+      console.log(data);
+      return data;
+      
+    });
+  };
+
+  useEffect(()=> {
+    console.log('useEffect partito');
+
+    fetchActors()
+    .then((data) => {
+      setActors(data);
+
+    });
+    
+
+  }, []);
+
+  console.log('valore di actors:', actors);
+
+
+
+
   return (
     <>
       <header>
@@ -14,10 +48,10 @@ function App() {
         </section>
 
         <section>
-          <article>
+          <article className="actor-card">
             <h2>Marco Fiordi</h2>
-            <img src=""
-              alt=""
+            <img src="https://picsum.photos/300/300"
+              alt="Marco Fiordi"
             />
             <p>1997- Italian</p>
 
