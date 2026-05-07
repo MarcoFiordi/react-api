@@ -37,17 +37,17 @@ function App() {
 
   return (
     <>
-      <header>
+      <header className="main-header">
         <p>Wonderful Cast</p>
       </header>
 
-      <main>
-        <section>
+      <main className="main-content">
+        <section className="intro-section">
           <h1>Actors</h1>
           <p>List of actors fetched from API</p>
         </section>
 
-        <section>
+        <section className="cards-container">
           {actors.map((actor) => {
             return (
               <article className="actor-card" key={actor.id}>
@@ -66,6 +66,15 @@ function App() {
                     Death year: {actor.death_year}
                   </p>
                 )}
+
+                <p>
+                  {actor.biography}
+                </p>
+
+                <p>
+                  <strong>Awards</strong> {actor.awards}
+                </p>
+
               </article>
             );
           })}
